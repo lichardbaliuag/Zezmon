@@ -18,3 +18,13 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'GreetifyAzure(c31a2a08-6d16-4a88-86eb-1897f0636e67)'
+    appType: 'webApp'
+    WebAppName: 'ZezmonApp'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'Zezmon-RG'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
